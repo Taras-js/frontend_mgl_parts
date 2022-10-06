@@ -8,3 +8,22 @@ body {
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+  margin: 0 auto;
+  /*background-color: gray;*/
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  /*min-width: 400px;*/
+  margin: 10px auto;
+  justify-content: space-between;
+  font-size: 25px;
+
+}
