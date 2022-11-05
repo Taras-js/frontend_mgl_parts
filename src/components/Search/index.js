@@ -16,6 +16,8 @@ function sleep(delay = 0) {
 
 export default function Search({products}) {
     const [open, setOpen] = React.useState(false);
+    // const [value, setValue] = React.useState('');
+
     const [options, setOptions] = React.useState([]);
     const loading = open && options.length === 0;
     console.log('products:', products)
@@ -45,35 +47,66 @@ export default function Search({products}) {
         }
     }, [open]);
 
+    function onOption (e) {
+        console.log('change+++:',e.target.value)
+        // setValue(e.target.value)
+    }
+    function onOptionClick (e) {
+        console.log('click+++:',e.target.value)
+        // setValue(e.target.value)
+
+    }
     return (
         <>
         <Autocomplete
             className='autocomplete__search'
             id="asynchronous-demo"
             sx={{ width: 400}}
+            // value={value}
             open={open}
+            onChange={(e) => onOption(e)}
+            onClick={(e) => onOptionClick(e)}
             onOpen={() => {
                 setOpen(true);
             }}
             onClose={() => {
                 setOpen(false);
             }}
-            isOptionEqualToValue={(option, value) => option.code === value.code}
-            getOptionLabel={(option) =>
+            isOptionEqualToValue={(option, value) =>
             {
+                
+                return option.code === value.code
+
+            }
+
+
+
+
+            }
+            getOptionLabel={(option) => {
+
+
                 return option.code  +  '                            '+ option.brand
             }
+
+
                 }
             options={options}
             loading={loading}
             renderInput={(params) => (
                 <TextField
                     {...params}
+                    onChange={(e) => onOption(e)}
+                    onClick={(e) => onOptionClick(e)}
+
                     label="Поиск по артикулу"
                     InputProps={{
+
                         ...params.InputProps,
                         endAdornment: (
-                            <React.Fragment>
+                            <React.Fragment
+                            >
+
                                 {loading ? <CircularProgress color="inherit" size={20} /> : null}
                                 {params.InputProps.endAdornment}
                             </React.Fragment>
