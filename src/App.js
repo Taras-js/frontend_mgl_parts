@@ -9,7 +9,7 @@ function App() {
     const [products, setProducts] = useState(null)
     useEffect(() => {
         tg.ready();
-        fetch('https://4ae2-31-135-77-185.ngrok.io/code', {
+        fetch('http://127.0.0.1:8000/code', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

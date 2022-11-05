@@ -61,8 +61,9 @@ export default function Search({products}) {
         <Autocomplete
             className='autocomplete__search'
             id="asynchronous-demo"
-            sx={{ width: 400}}
+            sx={{ width: 350}}
             // value={value}
+            type={'tel'}
             open={open}
             onChange={(e) => onOption(e)}
             onClick={(e) => onOptionClick(e)}
@@ -74,7 +75,7 @@ export default function Search({products}) {
             }}
             isOptionEqualToValue={(option, value) =>
             {
-                
+
                 return option.code === value.code
 
             }
@@ -98,7 +99,7 @@ export default function Search({products}) {
                     {...params}
                     onChange={(e) => onOption(e)}
                     onClick={(e) => onOptionClick(e)}
-
+                    type={'tel'}
                     label="Поиск по артикулу"
                     InputProps={{
 
@@ -120,7 +121,6 @@ export default function Search({products}) {
                 <th>Бренд</th>
                 <th>Артикул</th>
                 <th>Клиент</th>
-                <th>Кол-во</th>
             </tr>
 </table>
             {products && products.map(i =>
@@ -129,7 +129,6 @@ export default function Search({products}) {
                     <td>{i.brand}</td>
                     <td>{i.code}</td>
                     <td>{i.client}</td>
-                    <td>{i.count_all}</td>
                 </tr>
 
             )
