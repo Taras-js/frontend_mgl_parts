@@ -14,11 +14,11 @@ function sleep(delay = 0) {
     });
 }
 
-export default function Search() {
+export default function Search({products}) {
     const [open, setOpen] = React.useState(false);
     const [options, setOptions] = React.useState([]);
     const loading = open && options.length === 0;
-
+    console.log('products:', products)
     React.useEffect(() => {
         let active = true;
 
@@ -27,10 +27,10 @@ export default function Search() {
         }
 
         (async () => {
-            await sleep(1e3); // For demo purposes.
+            // await sleep(1e3); // For demo purposes.
 
             if (active) {
-                setOptions([...topFilms]);
+                setOptions([...products]);
             }
         })();
 
@@ -48,8 +48,9 @@ export default function Search() {
     return (
         <>
         <Autocomplete
+            className='autocomplete__search'
             id="asynchronous-demo"
-            sx={{ width: 300 }}
+            sx={{ width: 400}}
             open={open}
             onOpen={() => {
                 setOpen(true);
@@ -57,8 +58,12 @@ export default function Search() {
             onClose={() => {
                 setOpen(false);
             }}
-            isOptionEqualToValue={(option, value) => option.year === value.year}
-            getOptionLabel={(option) => option.year}
+            isOptionEqualToValue={(option, value) => option.code === value.code}
+            getOptionLabel={(option) =>
+            {
+                return option.code  +  '                            '+ option.brand
+            }
+                }
             options={options}
             loading={loading}
             renderInput={(params) => (
@@ -77,11 +82,22 @@ export default function Search() {
                 />
             )}
         />
-            {topFilms.map(i =>
-                <div className={'wrapper'}>
-                    <div>{i.year}</div>
-                    <div>{i.title}</div>
-                </div>
+<table>
+            <tr className={'wrapper__header'}>
+                <th>Бренд</th>
+                <th>Артикул</th>
+                <th>Клиент</th>
+                <th>Кол-во</th>
+            </tr>
+</table>
+            {products && products.map(i =>
+
+                <tr className={'wrapper'}>
+                    <td>{i.brand}</td>
+                    <td>{i.code}</td>
+                    <td>{i.client}</td>
+                    <td>{i.count_all}</td>
+                </tr>
 
             )
             }
@@ -92,27 +108,3 @@ export default function Search() {
     );
 }
 
-// Top films as rated by IMDb users. http://www.imdb.com/chart/top
-const topFilms = [
-
-    { title: 'Elring', year: '050550' },
-    { title: 'Elring', year: '049557' },
-    { title: 'Elring', year: '043605' },
-    { title: 'Elring', year: '038164' },
-    { title: 'Elring', year: '030671' },
-    { title: 'Bosch', year: '0281006009' },
-    { title: 'Bosch', year: '0432193419' },
-    { title: 'Elring', year: '027170' },
-    { title: 'Elring', year: '026821' },
-    { title: 'Elring', year: '025260' },
-    { title: 'BOSCH', year: '0242135557' },
-    { title: 'BOSCH', year: '0130821993' },
-    { title: 'Elring', year: '003310' },
-    { title: 'Elring', year: '006051' },
-    { title: 'Elring', year: '007041' },
-    { title: 'Elring', year: '010051' },
-    { title: 'Elring', year: '012160' },
-    { title: 'Elring', year: '050550' },
-    { title: 'Elring', year: '012507' },
-
-];

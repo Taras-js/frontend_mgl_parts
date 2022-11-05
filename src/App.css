@@ -21,9 +21,47 @@ body {
 .wrapper {
   display: flex;
   flex-direction: row;
-  /*min-width: 400px;*/
-  margin: 10px auto;
+  min-width: 400px;
+  margin: 0 auto;
   justify-content: space-between;
-  font-size: 25px;
+  font-size: 20px;
 
+}
+
+.wrapper__header {
+  display: flex;
+  flex-direction: row;
+  min-width: 400px;
+  margin: 0 auto;
+  justify-content: space-between;
+  font-size: 20px;
+
+}
+
+table {
+  /*border: 1px solid grey;*/
+}
+/* границы ячеек первого ряда таблицы */
+
+th {
+  border: 1px solid grey;
+  width: 100px;
+}
+
+/* границы ячеек тела таблицы */
+td {
+  border: 1px solid grey;
+  width: 100px;
+  text-align: center;
+}
+.options__search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.autocomplete__search {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100px;
 }
