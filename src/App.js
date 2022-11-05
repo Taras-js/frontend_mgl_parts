@@ -9,7 +9,7 @@ function App() {
     const [products, setProducts] = useState(null)
     useEffect(() => {
         tg.ready();
-        fetch('/api/code', {
+        fetch('http://localhost:3000/api/code', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
