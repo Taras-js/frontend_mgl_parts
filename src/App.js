@@ -9,7 +9,7 @@ function App() {
     const [products, setProducts] = useState(null)
     useEffect(() => {
         tg.ready();
-        fetch('https://e061-31-135-77-185.ngrok.io/code', {
+        fetch('https://4ae2-31-135-77-185.ngrok.io/code', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ function App() {
             .then(data => data.json())
             .then(code => {
                 setProducts(code.code)
-                // console.log(code)
+                console.log(code)
             }
             )
     }, [])
