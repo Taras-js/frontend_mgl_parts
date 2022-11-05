@@ -9,7 +9,7 @@ function App() {
     const [products, setProducts] = useState(null)
     useEffect(() => {
         tg.ready();
-        fetch('https://31.184.253.77:8000/code', {
+        fetch('/code', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
