@@ -9,7 +9,7 @@ function App() {
     const [products, setProducts] = useState(null)
     useEffect(() => {
         tg.ready();
-        fetch('https://taras-server.ru/code', {
+        fetch('/code', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
