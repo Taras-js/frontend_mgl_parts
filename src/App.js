@@ -18,7 +18,7 @@ function App() {
             .then(data => data.json())
             .then(code => {
                 setProducts(code.code)
-                console.log(code)
+                // console.log(code)
             }
             )
     }, [])
