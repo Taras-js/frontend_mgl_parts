@@ -20,7 +20,7 @@ export default function Search({products}) {
 
     const [options, setOptions] = React.useState([]);
     const loading = open && options.length === 0;
-    // console.log('products:', products)
+    console.log('products:', products)
     React.useEffect(() => {
         let active = true;
 
@@ -32,7 +32,7 @@ export default function Search({products}) {
             // await sleep(1e3); // For demo purposes.
 
             if (active) {
-                setOptions([...dataDefault]);
+                setOptions([...products]);
             }
         })();
 
@@ -87,7 +87,7 @@ export default function Search({products}) {
             getOptionLabel={(option) => {
 
 
-                return option.code  +  '             '+ option.brand
+                return option.code  +  '                            '+ option.brand
             }
 
 
@@ -123,7 +123,7 @@ export default function Search({products}) {
                 <th>Клиент</th>
             </tr>
 </table>
-            {dataDefault.map(i =>
+            {products && products.map(i =>
 
                 <tr className={'wrapper'}>
                     <td>{i.brand}</td>
