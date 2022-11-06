@@ -10,7 +10,7 @@ root.render(
         <BrowserRouter>
             <StyledEngineProvider injectFirst>
                 <App/>
-            </StyledEngineProvider>
+            </StyledEngineProvider
         </BrowserRouter>
     </React.StrictMode>
 );
