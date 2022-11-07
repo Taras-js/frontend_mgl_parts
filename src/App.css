@@ -65,3 +65,8 @@ td {
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
 }
+.text__search{
+  background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+}
+

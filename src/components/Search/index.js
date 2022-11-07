@@ -93,6 +93,7 @@ export default function Search({products}) {
             loading={loading}
             renderInput={(params) => (
                 <TextField
+                    className='text__search'
                     {...params}
                     onChange={(e) => onOption(e)}
                     onClick={(e) => onOptionClick(e)}
